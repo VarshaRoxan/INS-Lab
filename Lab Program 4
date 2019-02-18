@@ -1,0 +1,49 @@
+#include<iostream.h>
+#include<dos.h>
+#include<stdlib.h>
+#define bucketSize 512
+void bktInput(int a,int b) {
+ if(a>bucketSize)
+ cout<<"\n\t\tBucket overflow";
+ else {
+ delay(500);
+ while(a>b){
+ cout<<"\n\t\t"<<b<<" bytes outputted.";
+ a-=b;
+ delay(500);
+ }
+ if (a>0) cout<<"\n\t\tLast "<<a<<" bytes sent\t";
+ cout<<"\n\t\tBucket output successful";
+ }
+}
+void main() {
+ int op, pktSize;
+ randomize();
+ cout<<"Enter output rate : "; cin>>op;
+ for(int i=1;i<=5;i++){
+ delay(random(1000));
+ pktSize=random(1000);
+ cout<<"\nPacket no "<<i<<"\tPacket size = "<<pktSize;
+ bktInput(pktSize,op);
+ }
+}
+
+
+Output:
+
+Enter output rate : 100
+Packet no 0 Packet size = 3
+ Bucket output successful
+ Last 3 bytes sent
+Packet no 1 Packet size = 33
+ Bucket output successful
+ Last 33 bytes sent
+Packet no 2 Packet size = 117
+ Bucket output successful
+ 100 bytes outputted.
+ Last 17 bytes sent
+Packet no 3 Packet size = 95
+ Bucket output successful
+ Last 95 bytes sent
+Packet no 4 Packet size = 949
+ Bucket overflow 
