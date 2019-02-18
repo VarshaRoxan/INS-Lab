@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<string.h>
-//#include<conio.h>
 #include<math.h>
 int mult(unsigned int x, unsigned int y, unsigned int n)
 {
@@ -17,7 +16,7 @@ void main()
 	scanf("%[^\n]s",msg);
 	printf("%s",msg);
 	for(i=0;i<strlen(msg);i++)
-	pt[i]=msg[i];
+		pt[i]=msg[i];
 	n=253; d=17; e=13;
 	printf("\nCT=");
 	for(i=0;i<strlen(msg);i++) ct[i]=mult(pt[i],e,n);
